@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <bean id="player1"
+          class="com.game.model.Player">
+        <constructor-arg index="0" value="se_ga"/>
+        <constructor-arg index="1" value="1488"/>
+    </bean>
+    <bean id="player2"
+          class="com.game.model.Player">
+        <constructor-arg index="0" value="egor"/>
+        <constructor-arg index="1" value="0"/>
+    </bean>
+    <bean id="player3"
+          class="com.game.model.Player">
+        <constructor-arg index="0" value="enjua"/>
+        <constructor-arg index="1" value="333"/>
+    </bean>
+    <bean id="player4"
+          class="com.game.model.Player">
+        <constructor-arg index="0" value="artyom"/>
+        <constructor-arg index="1" value="666"/>
+    </bean>
+    <bean id="session"
+          class="com.game.model.Session">
+        <constructor-arg index="0" value="0"/>
+        <constructor-arg index="1">
+            <list>
+                <ref bean="player1"/>
+                <ref bean="player2"/>
+                <ref bean="player3"/>
+                <ref bean="player4"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+</beans>
