@@ -1,6 +1,7 @@
 package com.game.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -48,6 +49,7 @@ public class Player {
 
     @ManyToOne
     @JoinColumn(name = "session_id")
+    @JsonBackReference
     public Session getSession() {
         return session;
     }
