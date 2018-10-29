@@ -2,6 +2,7 @@ package com.game.service;
 
 import com.game.repository.PlayerRepository;
 import com.game.model.Player;
+import com.game.serviceiterface.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

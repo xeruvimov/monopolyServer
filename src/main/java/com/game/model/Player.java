@@ -1,18 +1,19 @@
 package com.game.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.Random;
 
 @Entity
 @Table(name = "players")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Player {
     private static Random rnd = new Random();
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "user_name")
     private String userName;
+    private Session session;
 
     public Player() {
     }
@@ -26,12 +27,33 @@ public class Player {
         return rnd.nextInt(6) + 1;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Column(name = "user_name")
     public String getUserName() {
         return userName;
     }
 
-    public Long getId() {
-        return id;
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "session_id")
+    public Session getSession() {
+        return session;
+    }
+
+    public void setSession(Session session) {
+        this.session = session;
     }
 
     @Override
