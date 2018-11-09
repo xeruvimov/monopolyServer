@@ -8,4 +8,8 @@ public interface PlayerService {
     Player getById(Long id);
 
     List<Player> getAll();
+
+    Player save(Player player);
+
+
 }

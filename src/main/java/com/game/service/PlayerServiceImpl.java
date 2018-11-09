@@ -23,4 +23,9 @@ public class PlayerServiceImpl implements PlayerService {
     public List<Player> getAll() {
         return playerRepository.findAll();
     }
+
+    @Override
+    public Player save(Player player) {
+        return playerRepository.save(player);
+    }
 }
