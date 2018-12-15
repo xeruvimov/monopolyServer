@@ -25,7 +25,6 @@ public class Session {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "session_id")
     public Long getId() {
         return id;
     }
