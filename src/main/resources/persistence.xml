@@ -8,6 +8,7 @@ http://xmlns.jcp.org/xml/ns/persistence_2_1.xsd">
         <jta-data-source>myDS</jta-data-source>
         <class>com.game.model.Session</class>
         <class>com.game.model.Player</class>
+        <class>com.game.model.GameState</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
             <property

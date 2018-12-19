@@ -5,27 +5,17 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.util.Random;
 
 @Entity
 @Table(name = "players")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Player {
-    private static Random rnd = new Random();
     private Long id;
     private String userName;
     private Session session;
+    private GameState gameState;
 
     public Player() {
-    }
-
-    public Player(String userName, Long id) {
-        this.id = id;
-        this.userName = userName;
-    }
-
-    public int rollDice() {
-        return rnd.nextInt(6) + 1;
     }
 
     @Id
@@ -56,6 +46,16 @@ public class Player {
 
     public void setSession(Session session) {
         this.session = session;
+    }
+
+    @OneToOne
+    @JoinColumn(name = "state_id")
+    public GameState getGameState() {
+        return gameState;
+    }
+
+    public void setGameState(GameState gameState) {
+        this.gameState = gameState;
     }
 
     @Override
