@@ -28,6 +28,7 @@ public class SessionRepository {
         return em.createNamedQuery("Session.findAll", Session.class).getResultList();
     }
 
+    @Transactional
     public Session save(Session session) {
         if (session.getId() == null) {
             em.persist(session);
@@ -52,7 +53,7 @@ public class SessionRepository {
     @Transactional
     public Session addPlayerToSessionById(Long sessionId, Long playerId) {
         Session session = this.findById(sessionId);
-        Player player = playerRepository.getOne(playerId);
+        Player player = playerRepository.findOne(playerId);
         session.addPlayer(player);
         return this.save(session);
     }

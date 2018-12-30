@@ -9,6 +9,11 @@ import javax.persistence.*;
 @Entity
 @Table(name = "players")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@NamedQueries({
+        @NamedQuery(name = "Player.findAll", query = "select s from Player s"),
+        @NamedQuery(name = "Player.findOne", query = "select distinct s from Player s left join fetch GameState where s.id = :id")
+})
+
 public class Player {
     private Long id;
     private String userName;

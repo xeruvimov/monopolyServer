@@ -6,8 +6,8 @@ import java.util.Random;
 @Entity
 @Table(name = "game_state")
 @NamedQueries({
-        @NamedQuery(name = "state.findAll", query = "select s from GameState s"),
-        @NamedQuery(name = "state.findById", query = "select distinct s from GameState s where s.id = :id")
+        @NamedQuery(name = "State.findAll", query = "select s from GameState s"),
+        @NamedQuery(name = "State.findById", query = "select distinct s from GameState s where s.id = :id")
 })
 public class GameState {
     private static Random rnd = new Random();
